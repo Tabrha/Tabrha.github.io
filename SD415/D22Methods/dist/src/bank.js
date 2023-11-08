@@ -1,0 +1,65 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.bank = void 0;
+exports.bank = {
+    transactionsDB: [],
+    debit: function (id, amount) {
+        var customer = this.transactionsDB.find(function (c) {
+            return c.customerId === id;
+        });
+        if (customer) {
+            if (amount > 0 && this.getBalance(id) >= amount) {
+                this.saveTransaction(id, -amount);
+            }
+        }
+    },
+    credit: function (id, amount) {
+        var customer = this.transactionsDB.find(function (c) {
+            return c.customerId === id;
+        });
+        if (customer) {
+            if (amount > 0) {
+                this.saveTransaction(id, amount);
+            }
+        }
+    },
+    getBalance: function (id) {
+        var customer = this.transactionsDB.find(function (c) {
+            return c.customerId === id;
+        });
+        if (customer) {
+            return customer.customerTransactions.reduce(function (balance, transaction) {
+                return balance + transaction;
+            }, 0);
+        }
+        return 0;
+    },
+    saveTransaction: function (id, amount) {
+        var customer = this.transactionsDB.find(function (c) {
+            return c.customerId === id;
+        });
+        if (customer) {
+            customer.customerTransactions.push(amount);
+        }
+        else {
+            this.transactionsDB.push({ customerId: id, customerTransactions: [amount] });
+        }
+    },
+    bankBalance: function () {
+        var _this = this;
+        return this.transactionsDB.reduce(function (totalBalance, customer) { return totalBalance + _this.getBalance(customer.customerId); }, 0);
+    },
+}; //define bank object as type Bank
+exports.bank.transactionsDB = [
+    { customerId: 1, customerTransactions: [10, 50, -40] },
+    { customerId: 2, customerTransactions: [10, 10, -10] },
+    { customerId: 3, customerTransactions: [5, -5, 55] }
+];
+/* this is complete, no need to modify.
+Saves this amount to the customerTransactions array for customerId id. */
+exports.bank.saveTransaction = function (customerId, amount) {
+    var customer = exports.bank.transactionsDB.find(function (customer) { return customer.customerId === customerId; });
+    if (customer) {
+        customer.customerTransactions.push(amount);
+    }
+};
