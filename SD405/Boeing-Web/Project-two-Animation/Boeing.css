@@ -1,0 +1,56 @@
+#image1 {
+    left: 0;
+}
+
+#image2 {
+   left: 0;
+}
+
+/* Define animation properties */
+.animated-image1 {
+    position: absolute;
+    top: 0%;
+    transform: translateY(180%);
+    animation-duration: 6s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.animated-image2 {
+    position: absolute;
+    top: 10%;
+    transform: translateY(150%);
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+}
+
+/* Define animation keyframes */
+@keyframes moveLeft {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: 100%;
+    }
+
+   50% {
+        top:50%;
+    } 
+
+ }
+
+/* Apply animations to the images */
+#image1 {
+
+    animation-name: moveLeft;
+}
+
+#image2 {
+    animation-name: moveLeft;
+
+} 
+
+

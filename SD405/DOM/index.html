@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+   function swap(){
+    let nameText= document.getElementById("nameText")
+    let alias = document.getElementById("alias")
+
+    // console.log(nameText.value,alias.value);
+    let nameValue=nameText.value;
+       nameText.value=alias.value;
+       alias.value=nameValue;
+
+   }
+   function add(){
+    let number1 = document.getElementById("number1")
+    let number2 = document.getElementById("number2")
+    let result = document.getElementById("result")
+
+
+    result.value =parseInt(number1.value) + parseInt(number2.value)
+    console.log(result.value);
+
+   }
+
+</script>
+<body>
+    name    <input id="nameText" type="text">
+    <br>
+    <br>
+    Alias  <input id="alias"   type="text">
+    <br>
+    <br>
+    <button onclick="swap();">Swap</button>
+<br>
+<!--****************************************************************** -->
+ <br>
+    <br>
+    Number 1   <input id="number1" type="number">
+    <br>
+    <br>
+    Number 2   <input id="number2" type="number">
+    <br>
+    <br>
+    Number 3   <textarea id="result">Result</textarea>
+    <br>
+    <br>
+    <button onclick="add();">Add</button>
+
+</body>
+</html>
+
+

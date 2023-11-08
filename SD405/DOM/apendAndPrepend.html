@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myElement">
+        <p>This is the content of the element.</p>
+    </div>
+
+    <script>
+        // Appending a new paragraph to an element with the id "myElement"
+        var element = document.getElementById("myElement");
+        element.append("This is some text.", document.createElement("p"));
+
+        // Prepending a new paragraph to an element with the id "myElement"
+        var element = document.getElementById("myElement");
+        element.prepend("This is some text.", document.createElement("p"));
+    </script>
+</body>
+</html>

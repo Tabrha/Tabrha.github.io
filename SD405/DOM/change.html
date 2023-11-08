@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Elements with HTML DOM</title>
+</head>
+<body>
+
+    <!-- . Change Text of Div,P,textInput,link  -->
+
+    <div id="myDiv">This is a div.</div>
+    <p id="myParagraph">This is a paragraph.</p>
+    <input type="text" id="myInput" value="Initial Value">
+    <a id="myLink" href="https://www.example.com">Visit Example.com</a>
+
+    <script>
+        // Change the text of the div
+        let divElement = document.getElementById("myDiv");
+        divElement.textContent = "New text for the div";
+
+        // Change the text of the paragraph
+        let paragraphElement = document.getElementById("myParagraph");
+        paragraphElement.textContent = "New text for the paragraph";
+               // Change the value of the text input
+        let inputElement = document.getElementById("myInput");
+        inputElement.value = "New input value";
+      
+
+        let linkeElement = document.getElementById("myLink");
+        linkElement.textContent = "visit openAi";
+        linkElement.href = "https://www.openai.com";
+
+    </script>
+
+</body>
+</html>

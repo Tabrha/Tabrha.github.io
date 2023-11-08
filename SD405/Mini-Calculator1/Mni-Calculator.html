@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <div style="display: block; border: 2px solid ">
+    <textarea name="" id="result" cols="25" rows=></textarea>
+    <div>
+        <button onclick="appendText(1)">1</button>
+        <button onclick="appendText(2)">2</button>
+        <button onclick="appendText(3)">3</button>
+        <button onclick="appendText(4)">4</button>
+        <button onclick="appendText(5)">5</button>
+        <button onclick="appendText(6)">6</button> 
+        <button onclick="appendText(0)">0</button>
+        <button onclick="appendText('+')">+</button>
+        <button onclick="appendText('-')">-</button>
+        <button onclick="appendText('*')">*</button>
+        <button onclick="appendText('/')">/</button>
+
+        <button onclick="calculateResult()">Go</button>
+        <button onclick="clearResult()">Clear</button>
+    </div>
+    <script>
+        function appendText(value) {
+            let result = document.querySelector('#result');
+            result.value += value;
+        }
+        function calculateResult() {
+            let result = document.querySelector('#result');
+            try {
+                result.value = eval(result.value);
+            } catch (error) {
+                result.value = 'Error';
+            }
+        }
+        function clearResult() {
+            let result = document.querySelector('#result');
+            result.value = '';
+        }
+    </script>
+    </div>
+</body>
+</html>
