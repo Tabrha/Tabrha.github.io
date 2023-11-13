@@ -50,4 +50,12 @@ export function getMaxSubSum(arr) {
 export function camelize(str) {
     return str.replace(/[-_\s]([a-zA-Z])/g, (_, char) => char.toUpperCase());
 }
-export function extractCurrencyValue() { }
+export function extractCurrencyValue(currencyString) {
+    const match = currencyString.match(/(\d+(\.\d+)?)/);
+    if (match) {
+        return parseFloat(match[0]);
+    }
+    else {
+        return 0;
+    }
+}

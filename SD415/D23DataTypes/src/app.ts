@@ -70,4 +70,14 @@ export function camelize(str:string) {
 }
 
 
-export function extractCurrencyValue(){} 
+export function extractCurrencyValue(currencyString: string): number {
+  
+  const match = currencyString.match(/(\d+(\.\d+)?)/);
+
+  if (match) {
+    
+    return parseFloat(match[0]);
+  } else {
+        return 0;
+  }
+}
