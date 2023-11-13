@@ -1,5 +1,5 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
-import { assert } from "chai";
+// import { assert } from "chai";
 import { includesEvenAge, doubleNums, doubleAges, filterEven, filterOver10, findEvenAge, findEvenNum } from "../src/arrayPractice.js";
 let numArray = Array();
 let peopleArray = Array();
