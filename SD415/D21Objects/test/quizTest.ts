@@ -5,7 +5,7 @@ import { StudentQuiz, gradeStudent, gradeQuiz, gradeQuizLabeled } from "../src/q
 
 
 describe("quiz tests", function () {
-
+  
     const student1 = {
         studentId: 101,
         quizAnswers: [1, 1, 2, 4]
@@ -21,8 +21,9 @@ describe("quiz tests", function () {
         quizAnswers: [3, 1, 3, 4]
     }
     const CORRECT_ANSWERS = [3, 1, 2, 4];
-    const studentQuizzes: StudentQuiz[] = [student1, student2, student3];
+     const studentQuizzes: StudentQuiz[] = [student1, student2, student3];
 
+    
     it("gradeStudent -- grade for 1 student", function () {
         assert.deepEqual(gradeStudent(student1.quizAnswers, CORRECT_ANSWERS), 3);
     });
@@ -39,3 +40,4 @@ describe("quiz tests", function () {
     });
 
 });
+
