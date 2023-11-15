@@ -8,11 +8,15 @@ P.S. Use Object.entries and destructuring to iterate over key/value pairs.
 // the following type definition says that SalaryObj has keys of type string and values of type number
 // type SalaryObj = { [key: string]: number };
 
+// type SalaryObj = {
+//     [key: string]: number;
+// };
+
 type SalaryObj = {
     [key: string]: number;
 };
 
-export function topSalary(salaries: SalaryObj): string {
+export function topSalary(salaries: SalaryObj): string|null {
     if (Object.keys(salaries).length === 0) {
         return "No employees";
     }
@@ -25,10 +29,19 @@ export function topSalary(salaries: SalaryObj): string {
             max = salary;
             topPaid = person;
         }
-
     }
+
+    if (topPaid === "") {
+        // This means no valid salary was found (e.g., all salaries were non-positive).
+        return null;
+    }
+
     return topPaid;
 }
+
+
+
+
 
 
 

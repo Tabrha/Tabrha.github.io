@@ -1,5 +1,5 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
-import { assert } from "chai";
+// import { assert } from "chai";
 import { firstLast, replaceEnds, higho, square, absVal, } from "../src/exam.js";
 import { calculateDailyTotalDuration, getAllSessions, getAllDurations } from "../src/exam.js";
 // ToDO this function later  getAllSessionsForUser
