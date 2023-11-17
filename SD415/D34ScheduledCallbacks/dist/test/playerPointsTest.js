@@ -1,5 +1,5 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
-import { assert } from "chai";
+// import { assert } from "chai";
 import { player3, teamStats, findTotalScores, findTotalPlayerPoints, findTotalPointsByJersey } from "../src/playerPoints.js";
 describe("Season statistics tests", function () {
     it("tests findTotalPlayerPoints", function () {

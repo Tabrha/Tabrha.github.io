@@ -1,7 +1,40 @@
 /*Be sure to use meaningful variable names.
 Try to use map and reduce in your functions as appropriate. */
-//The following objects record the season statistics for players on a basketball team.
+export { player3, teamStats, findTotalScores, findTotalPlayerPoints, findTotalPointsByJersey };
 const player1 = { jersey: 8, stats: [{ game: 1, points: 6 }, { game: 2, points: 7 }] };
 const player2 = { jersey: 12, stats: [{ game: 1, points: 16 }, { game: 2, points: 14 }] };
-export const player3 = { jersey: 6, stats: [{ game: 1, points: 10 }, { game: 2, points: 6 }] };
-export const teamStats = [player1, player2, player3];
+const player3 = { jersey: 6, stats: [{ game: 1, points: 10 }, { game: 2, points: 6 }] };
+const teamStats = [player1, player2, player3];
+/**
+ * Calculates the total points for a given player.
+ * @param {Player} player - The player object.
+ * @returns {number} - The total points for the player.
+ */
+function findTotalPlayerPoints(player) {
+    return player.stats.reduce((total, game) => total + game.points, 0);
+}
+/**
+ * Calculates the total points for all games played by a player with a given jersey number.
+ * @param {number} jerseyNumber - The jersey number of the player.
+ * @returns {number} - The total points for the player with the specified jersey number.
+ */
+function findTotalPointsByJersey(jerseyNumber) {
+    const player = teamStats.find(player => player.jersey === jerseyNumber);
+    if (player) {
+        return findTotalPlayerPoints(player);
+    }
+    else {
+        return 0; // Return 0 if no player with the specified jersey number is found.
+    }
+}
+/**
+ * Calculates the total points for all players and organizes the result by jersey number.
+ * @param {Player[]} teamStats - An array of player objects.
+ * @returns {JerseyPoints[]} - An array of objects containing jersey numbers and corresponding total points.
+ */
+function findTotalScores(teamStats) {
+    return teamStats.map(player => ({
+        jersey: player.jersey,
+        total: findTotalPlayerPoints(player)
+    }));
+}
