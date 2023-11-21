@@ -3,28 +3,17 @@ export const classrooms = [
     {
         roomNumber: 101,
         capacity: 30,
-        students: [
-            { name: "Alice", age: 18 },
-            { name: "Bob", age: 19 },
-            { name: "Charlie", age: 17 },
-        ],
+        students: [{ name: "Alice", age: 18 }, { name: "Bob", age: 19 }, { name: "Charlie", age: 17 },],
     },
     {
         roomNumber: 102,
         capacity: 25,
-        students: [
-            { name: "David", age: 20 },
-            { name: "Eve", age: 18 },
-        ],
+        students: [{ name: "David", age: 20 }, { name: "Eve", age: 18 },]
     },
     {
         roomNumber: 103,
         capacity: 35,
-        students: [
-            { name: "Frank", age: 19 },
-            { name: "Grace", age: 20 },
-            { name: "Helen", age: 17 },
-        ],
+        students: [{ name: "Frank", age: 19 }, { name: "Grace", age: 20 }, { name: "Helen", age: 17 },],
     },
 ];
 // 1. Function to collect room numbers

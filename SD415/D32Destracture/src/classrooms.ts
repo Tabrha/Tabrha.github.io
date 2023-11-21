@@ -1,6 +1,8 @@
 
-export {collectRoomNumbers, collectRoomsAndCapacities , collectLabeledRoomCaps,countStudentsInClassroom, 
-  findClassroomsWithCapacity, findStudentsOlderThan, averageStudentAge};  //implement these
+export {
+  collectRoomNumbers, collectRoomsAndCapacities, collectLabeledRoomCaps, countStudentsInClassroom,
+  findClassroomsWithCapacity, findStudentsOlderThan, averageStudentAge
+};  //implement these
 
 // 1.	Write a function collectRoomNumbers that will return an array of all the room nmbers.
 // 2.	Write a function collectRoomsAndCapacities to return an array with room numbers and capacities in this 
@@ -23,10 +25,7 @@ export type { Classroom, Student };
 type Classroom = {
   roomNumber: number;
   capacity: number;
-  students: {
-    name: string;
-    age: number;
-  }[];
+  students: Student[];
 };
 
 type Student = {
@@ -38,59 +37,48 @@ export const classrooms: Classroom[] = [
   {
     roomNumber: 101,
     capacity: 30,
-    students: [
-      { name: "Alice", age: 18 },
-      { name: "Bob", age: 19 },
-      { name: "Charlie", age: 17 },
-    ],
+    students: [{ name: "Alice", age: 18 }, { name: "Bob", age: 19 }, { name: "Charlie", age: 17 },],
   },
   {
     roomNumber: 102,
     capacity: 25,
-    students: [
-      { name: "David", age: 20 },
-      { name: "Eve", age: 18 },
-    ],
+    students: [{ name: "David", age: 20 }, { name: "Eve", age: 18 },]
   },
   {
     roomNumber: 103,
     capacity: 35,
-    students: [
-      { name: "Frank", age: 19 },
-      { name: "Grace", age: 20 },
-      { name: "Helen", age: 17 },
-    ],
+    students: [{ name: "Frank", age: 19 }, { name: "Grace", age: 20 }, { name: "Helen", age: 17 },],
   },
 ];
 
 // 1. Function to collect room numbers
- function collectRoomNumbers(classrooms: Classroom[]): number[] {
+function collectRoomNumbers(classrooms: Classroom[]): number[] {
   return classrooms.map((classroom) => classroom.roomNumber);
 }
 
 // 2. Function to collect room numbers and capacities in string format
- function collectRoomsAndCapacities(classrooms: Classroom[]): string[] {
+function collectRoomsAndCapacities(classrooms: Classroom[]): string[] {
   return classrooms.map((classroom) => `${classroom.roomNumber}::${classroom.capacity}`);
 }
 
 // 3. Function to collect room numbers and capacities in object format
- function collectLabeledRoomCaps(classrooms: Classroom[]): { roomNumber: number; capacity: number }[] {
+function collectLabeledRoomCaps(classrooms: Classroom[]): { roomNumber: number; capacity: number }[] {
   return classrooms.map((classroom) => ({ roomNumber: classroom.roomNumber, capacity: classroom.capacity }));
 }
 
 // 4. Function to count students in a specific classroom
- function countStudentsInClassroom(classrooms: Classroom[], roomNumber: number): number | undefined {
+function countStudentsInClassroom(classrooms: Classroom[], roomNumber: number): number | undefined {
   const classroom = classrooms.find((classroom) => classroom.roomNumber === roomNumber);
   return classroom ? classroom.students.length : undefined;
 }
 
 // 5. Function to find classrooms with a minimum capacity
- function findClassroomsWithCapacity(classrooms: Classroom[], minCapacity: number): Classroom[] {
+function findClassroomsWithCapacity(classrooms: Classroom[], minCapacity: number): Classroom[] {
   return classrooms.filter((classroom) => classroom.capacity >= minCapacity);
 }
 
 // 6. Function to find students older than a minimum age
- function findStudentsOlderThan(classrooms: Classroom[], minAge: number): { name: string; age: number; classroom: number }[] {
+function findStudentsOlderThan(classrooms: Classroom[], minAge: number): { name: string; age: number; classroom: number }[] {
   const result: { name: string; age: number; classroom: number }[] = [];
 
   classrooms.forEach((classroom) => {
@@ -105,7 +93,7 @@ export const classrooms: Classroom[] = [
 }
 
 // 7. Function to calculate the average student age across all classrooms
- function averageStudentAge(classrooms: Classroom[]): number {
+function averageStudentAge(classrooms: Classroom[]): number {
   let totalAge = 0;
   let totalStudents = 0;
 
